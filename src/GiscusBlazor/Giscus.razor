@@ -29,7 +29,7 @@
 
     string MappingString => Mapping switch
     {
-        
+
         Mapping.PathName => "pathname",
         Mapping.Url => "url",
         Mapping.Title => "title",
@@ -65,7 +65,22 @@
         GiscusRenderer = await _jsRuntime.InvokeAsync<IJSObjectReference>
             ("import", "./_content/GiscusBlazor/Giscus.razor.js");
 
-        if (Mapping != Mapping.Number && Mapping != Mapping.Specific)
+        if (Mapping == Mapping.Number && int.TryParse(Term, out _) || Mapping == Mapping.Specific)
+        {
+            await GiscusRenderer.InvokeVoidAsync("addGiscusWithTerm", TimeSpan.FromSeconds(5),
+                Repo,
+                RepoId,
+                Category,
+                CategoryId,
+                MappingString,
+                Term,
+                ReactionsEnabled ? "1" : "0",
+                EmitMetadata ? "1" : "0",
+                InputPosition == InputPosition.Top ? "top" : "bottom",
+                Theme,
+                Lang);
+        }
+        else
         {
             await GiscusRenderer.InvokeVoidAsync("addGiscus", TimeSpan.FromSeconds(5),
                 Repo,
@@ -78,9 +93,6 @@
                 InputPosition == InputPosition.Top ? "top" : "bottom",
                 Theme,
                 Lang);
-        }
-        else
-        {
         }
     }
 }
