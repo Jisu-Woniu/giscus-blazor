@@ -1,5 +1,7 @@
 ﻿@using Microsoft.JSInterop
+@using Microsoft.Extensions.Logging
 @inject IJSRuntime _jsRuntime
+@inject ILogger _logger
 @namespace GiscusBlazor
 <div id="giscus-block"></div>
 
@@ -65,7 +67,7 @@
         GiscusRenderer = await _jsRuntime.InvokeAsync<IJSObjectReference>
             ("import", "./_content/GiscusBlazor/Giscus.razor.js");
 
-        if (Mapping == Mapping.Number && int.TryParse(Term, out _) || Mapping == Mapping.Specific)
+        if (Mapping == Mapping.Number && int.TryParse(Term, out int i) && i > 0 || Mapping == Mapping.Specific && string.IsNullOrEmpty(Term))
         {
             await GiscusRenderer.InvokeVoidAsync("addGiscusWithTerm", TimeSpan.FromSeconds(5),
                 Repo,
@@ -80,7 +82,7 @@
                 Theme,
                 Lang);
         }
-        else
+        else if (Mapping != Mapping.Number && Mapping != Mapping.Specific)
         {
             await GiscusRenderer.InvokeVoidAsync("addGiscus", TimeSpan.FromSeconds(5),
                 Repo,
@@ -93,6 +95,14 @@
                 InputPosition == InputPosition.Top ? "top" : "bottom",
                 Theme,
                 Lang);
+        }
+        else if (string.IsNullOrEmpty(Term))
+        {
+            _logger.LogError( "Property Term should be set if Property Mapping is set to Number or Specific.");
+        }
+        else if (Mapping == Mapping.Number && (!int.TryParse(Term, out int j) || j <= 0))
+        {
+            _logger.LogError("Property Term should be set to a non-negative number if Property Mapping is set to Number.");
         }
     }
 }

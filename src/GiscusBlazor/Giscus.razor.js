@@ -13,6 +13,7 @@
 	giscus.setAttribute("data-lang", lang);
 	giscus.setAttribute("crossorigin", "anonymous");
 	giscus.setAttribute("async", "");
+	giscus.onerror = () => { console.error("Unable to load giscus component.") };
 	document.getElementById("giscus-block").appendChild(giscus);
 }
 export function addGiscusWithTerm(repo, repoId, category, categoryId, mapping,term, reactionsEnabled, emitMetadata, inputPosition, theme, lang) {
@@ -31,6 +32,7 @@ export function addGiscusWithTerm(repo, repoId, category, categoryId, mapping,te
 	giscus.setAttribute("data-lang", lang);
 	giscus.setAttribute("crossorigin", "anonymous");
 	giscus.setAttribute("async", "");
+	giscus.onerror = () => { console.error("Unable to load giscus component.") };
 	document.getElementById("giscus-block").appendChild(giscus);
 }
 
