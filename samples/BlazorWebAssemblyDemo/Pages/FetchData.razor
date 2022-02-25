@@ -1,5 +1,6 @@
 ﻿@page "/fetchdata"
 @inject HttpClient Http
+@using GiscusBlazor
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -35,6 +36,19 @@ else
         </tbody>
     </table>
 }
+
+<p>This page is using an incorrect configuration, you should be able to find the error message in the console.</p>
+
+<Giscus Repo="Jisu-Woniu/giscus-blazor"
+        RepoId="R_kgDOG5OPrQ"
+        Category="Announcements"
+        CategoryId="DIC_kwDOG5OPrc4CBTDa"
+        Mapping="Mapping.Specific"
+        ReactionsEnabled="true"
+        EmitMetadata="false"
+        InputPosition="InputPosition.Bottom"
+        Theme="light"
+        Lang="en" />
 
 @code {
     private WeatherForecast[]? forecasts;

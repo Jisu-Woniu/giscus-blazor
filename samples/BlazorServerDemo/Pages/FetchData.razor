@@ -1,5 +1,5 @@
 ﻿@page "/fetchdata"
-
+@using GiscusBlazor
 <PageTitle>Weather forecast</PageTitle>
 
 @using BlazorServerDemo.Data
@@ -11,32 +11,47 @@
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+    <p>
+        <em>Loading...</em>
+    </p>
 }
 else
 {
     <table class="table">
         <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
+        <tr>
+            <th>Date</th>
+            <th>Temp. (C)</th>
+            <th>Temp. (F)</th>
+            <th>Summary</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
+        @foreach (WeatherForecast forecast in forecasts)
+        {
+            <tr>
+                <td>@forecast.Date.ToShortDateString()</td>
+                <td>@forecast.TemperatureC</td>
+                <td>@forecast.TemperatureF</td>
+                <td>@forecast.Summary</td>
+            </tr>
+        }
         </tbody>
     </table>
 }
+
+<p>This page is using an incorrect configuration, you should be able to find the error message in the console.</p>
+
+<Giscus Repo="Jisu-Woniu/giscus-blazor"
+        RepoId="R_kgDOG5OPrQ"
+        Category="Announcements"
+        CategoryId="DIC_kwDOG5OPrc4CBTDa"
+        Mapping="Mapping.Specific"
+        ReactionsEnabled="true"
+        EmitMetadata="false"
+        InputPosition="InputPosition.Bottom"
+        Theme="light"
+        Lang="en"/>
 
 @code {
     private WeatherForecast[]? forecasts;

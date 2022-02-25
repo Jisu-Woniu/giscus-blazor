@@ -9,9 +9,3 @@ public enum Mapping
     Specific,
     Number
 }
-
-public enum InputPosition
-{
-    Bottom,
-    Top
-}
