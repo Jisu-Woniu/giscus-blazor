@@ -2,7 +2,7 @@
 
 A Blazor component to embed [giscus](https://giscus.app), a comments system powered by GitHub Discussions.
 
-Supports both Blazor WebAssembly and Blazor WebServer.
+Supports both Blazor WebAssembly and Blazor Server.
 
 ## Getting started
 
