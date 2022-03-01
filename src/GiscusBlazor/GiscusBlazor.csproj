@@ -9,7 +9,10 @@
     <RepositoryUrl>https://github.com/Jisu-Woniu/giscus-blazor</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
+    <Description>A Blazor component to embed giscus, a comments system powered by GitHub Discussions.</Description>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
