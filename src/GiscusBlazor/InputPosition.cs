@@ -1,20 +1,23 @@
-﻿namespace GiscusBlazor;
+﻿using System;
 
-public enum InputPosition
+namespace GiscusBlazor
 {
-    Bottom,
-    Top
-}
-
-internal static class InputPositionExtensions
-{
-    internal static string ToPositionString(this InputPosition position)
+    public enum InputPosition
     {
-        return position switch
+        Bottom,
+        Top
+    }
+
+    internal static class InputPositionExtensions
+    {
+        internal static string ToPositionString(this InputPosition position)
         {
-            InputPosition.Bottom => "bottom",
-            InputPosition.Top => "top",
-            _ => throw new ArgumentOutOfRangeException(nameof(position))
-        };
+            return position switch
+            {
+                InputPosition.Bottom => "bottom",
+                InputPosition.Top => "top",
+                _ => throw new ArgumentOutOfRangeException(nameof(position))
+            };
+        }
     }
 }

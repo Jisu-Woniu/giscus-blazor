@@ -1,30 +1,31 @@
-﻿namespace GiscusBlazor;
+﻿using System;
 
-public enum Mapping
+namespace GiscusBlazor
 {
-    PathName,
-    Url,
-    Title,
-    OgTitle,
-    Specific,
-    Number
-}
-/*private string MappingString => Mapping switch
-*/
-
-internal static class MappingExtensions
-{
-    internal static string ToMappingString(this Mapping mapping)
+    public enum Mapping
     {
-        return mapping switch
+        PathName,
+        Url,
+        Title,
+        OgTitle,
+        Specific,
+        Number
+    }
+
+    internal static class MappingExtensions
+    {
+        internal static string ToMappingString(this Mapping mapping)
         {
-            Mapping.PathName => "pathname",
-            Mapping.Url => "url",
-            Mapping.Title => "title",
-            Mapping.OgTitle => "og:title",
-            Mapping.Specific => "specific",
-            Mapping.Number => "number",
-            _ => throw new ArgumentOutOfRangeException(nameof(mapping))
-        };
+            return mapping switch
+            {
+                Mapping.PathName => "pathname",
+                Mapping.Url => "url",
+                Mapping.Title => "title",
+                Mapping.OgTitle => "og:title",
+                Mapping.Specific => "specific",
+                Mapping.Number => "number",
+                _ => throw new ArgumentOutOfRangeException(nameof(mapping))
+            };
+        }
     }
 }
