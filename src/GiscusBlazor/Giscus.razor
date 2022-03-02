@@ -1,107 +1,13 @@
-﻿@using Microsoft.JSInterop
-@inject IJSRuntime _jsRuntime
-
-@namespace GiscusBlazor
-<div id="giscus-block"></div>
-
-@code
-{
-    IJSObjectReference? GiscusRenderer { get; set; }
-
-    [Parameter]
-    [EditorRequired]
-    public string Repo { get; set; } = null!;
-
-    [Parameter]
-    [EditorRequired]
-    public string RepoId { get; set; } = null!;
-
-    [Parameter]
-    [EditorRequired]
-    public string Category { get; set; } = "General";
-
-
-    [Parameter]
-    [EditorRequired]
-    public string CategoryId { get; set; } = null!;
-
-    [Parameter]
-    public Mapping Mapping { get; set; } = Mapping.PathName;
-
-    string MappingString => Mapping switch
-    {
-
-        Mapping.PathName => "pathname",
-        Mapping.Url => "url",
-        Mapping.Title => "title",
-        Mapping.OgTitle => "og:title",
-        Mapping.Specific => "specific",
-        Mapping.Number => "number",
-        _ => throw new ArgumentOutOfRangeException()
-
-        };
-
-    [Parameter]
-    public string? Term { get; set; }
-
-    [Parameter]
-    public bool ReactionsEnabled { get; set; } = true;
-
-    [Parameter]
-    public bool EmitMetadata { get; set; }
-
-    [Parameter]
-    public InputPosition InputPosition { get; set; }
-
-    [Parameter]
-    public string Theme { get; set; } = "light";
-
-    [Parameter]
-    public string Lang { get; set; } = "en";
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await base.OnAfterRenderAsync(firstRender);
-
-        GiscusRenderer = await _jsRuntime.InvokeAsync<IJSObjectReference>
-            ("import", "./_content/GiscusBlazor/Giscus.razor.js");
-
-        if (Mapping == Mapping.Number && int.TryParse(Term, out int i) && i > 0 || Mapping == Mapping.Specific && !string.IsNullOrEmpty(Term))
-        {
-            await GiscusRenderer.InvokeVoidAsync("addGiscusWithTerm", TimeSpan.FromSeconds(5),
-                Repo,
-                RepoId,
-                Category,
-                CategoryId,
-                MappingString,
-                Term,
-                ReactionsEnabled ? "1" : "0",
-                EmitMetadata ? "1" : "0",
-                InputPosition == InputPosition.Top ? "top" : "bottom",
-                Theme,
-                Lang);
-        }
-        else if (Mapping != Mapping.Number && Mapping != Mapping.Specific)
-        {
-            await GiscusRenderer.InvokeVoidAsync("addGiscus", TimeSpan.FromSeconds(5),
-                Repo,
-                RepoId,
-                Category,
-                CategoryId,
-                MappingString,
-                ReactionsEnabled ? "1" : "0",
-                EmitMetadata ? "1" : "0",
-                InputPosition == InputPosition.Top ? "top" : "bottom",
-                Theme,
-                Lang);
-        }
-        else if (string.IsNullOrEmpty(Term))
-        {
-            throw new ArgumentException("Property Term should be set if Property Mapping is set to Number or Specific.");
-        }
-        else if (Mapping == Mapping.Number && (!int.TryParse(Term, out int j) || j <= 0))
-        {
-            throw new ArgumentException("Property Term should be set to a non-negative number if Property Mapping is set to Number.", nameof(Term));
-        }
-    }
-}
+﻿<giscus-widget
+    repo="@Repo"
+    repoid="@RepoId"
+    category="@Category"
+    categoryid="@CategoryId"
+    mapping="@Mapping.ToMappingString()"
+    term="@Term"
+    reactionsenabled="@(ReactionsEnabled ? "1" : "0")"
+    emitmetadata="@(EmitMetadata ? "1" : "0")"
+    inputposition="@InputPosition"
+    theme="@Theme"
+    lang="@Lang">
+</giscus-widget>
