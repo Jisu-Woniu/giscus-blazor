@@ -13,7 +13,10 @@ To start, install it from NuGet.
 Then add **either one** of the following tag to your `wwwroot/index.html` (Blazor WebAssembly) or  `Pages/_Layout.cshtml` (Blazor Server) as the last child of `<head>` element.
 
 ```html
-<!-- Use unpkg -->
+<!-- Use jsDelivr, recommended -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus/+esm"></script>
+
+<!-- or unpkg -->
 <script type="module" src="https://unpkg.com/giscus?module"></script>
 
 <!-- or Skypack -->
@@ -23,7 +26,10 @@ Then add **either one** of the following tag to your `wwwroot/index.html` (Blazo
 You might need to fix the version when publish your website. For example:
 
 ```html
-<!-- Use unpkg -->
+<!-- Use jsDelivr, recommended -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@0.0.9/+esm"></script>
+
+<!-- or unpkg -->
 <script type="module" src="https://unpkg.com/giscus@0.0.9?module"></script>
 
 <!-- or Skypack -->
