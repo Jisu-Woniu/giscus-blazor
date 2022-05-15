@@ -6,7 +6,7 @@ Supports both Blazor WebAssembly and Blazor Server.
 
 ## Getting started
 
-To start, install it from NuGet.
+To start, install it from NuGet:
 
 [![Nuget GiscusBlazor](https://img.shields.io/nuget/v/GiscusBlazor.svg)](https://www.nuget.org/packages/GiscusBlazor/)
 
@@ -27,13 +27,13 @@ You might need to fix the version when publish your website. For example:
 
 ```html
 <!-- Use jsDelivr, recommended -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@0.0.9/+esm"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.0.3/+esm"></script>
 
 <!-- or unpkg -->
-<script type="module" src="https://unpkg.com/giscus@0.0.9?module"></script>
+<script type="module" src="https://unpkg.com/giscus@1.0.3?module"></script>
 
 <!-- or Skypack -->
-<script type="module" src="https://cdn.skypack.dev/giscus@0.0.9"></script>
+<script type="module" src="https://cdn.skypack.dev/giscus@1.0.3"></script>
 ```
 
 Then add this component to your `.razor` files where you want the comments to appear like this:
@@ -53,9 +53,21 @@ Then add this component to your `.razor` files where you want the comments to ap
         EmitMetadata="false"
         InputPosition="InputPosition.Bottom"
         Theme="light"
-        Lang="en" />
+        Lang="en"
+        LazyLoading="true" />
 ```
 
-Or you can just add `@using GiscusBlazor` to `_imports`
+Or you can just add `@using GiscusBlazor` to `_Imports.razor`.
 
-Most of the parameters can be found from the [giscus official site](https://giscus.app/).
+Most of the parameters’ information can be found from the [giscus official site](https://giscus.app/).
+
+## Samples
+
+You can get some sample apps from the [samples](samples) directory, in both Blazor WebAssembly and Blazor Server.
+
+## Changelog
+
+### v2.2.1
+
+- Add support for lazy-loading (see [giscus official site](https://giscus.app/)).
+- Removed support for .NET 5.0, which is now [out of support](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle).

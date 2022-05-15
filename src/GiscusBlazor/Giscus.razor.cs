@@ -45,5 +45,8 @@ namespace GiscusBlazor
 
         [Parameter]
         public string? Lang { get; set; }
+
+        [Parameter]
+        public bool LazyLoading { get; set; }
     }
 }
