@@ -10,6 +10,10 @@ To start, install it from NuGet:
 
 [![Nuget GiscusBlazor](https://img.shields.io/nuget/v/GiscusBlazor.svg)](https://www.nuget.org/packages/GiscusBlazor/)
 
+```console
+dotnet add package GiscusBlazor
+```
+
 Then add **either one** of the following tag to your `wwwroot/index.html` (Blazor WebAssembly) or  `Pages/_Layout.cshtml` (Blazor Server) as the last child of `<head>` element.
 
 ```html
