@@ -36,6 +36,8 @@ You might need to fix the version when publish your website. For example:
 <script type="module" src="https://cdn.skypack.dev/giscus@1.0.3"></script>
 ```
 
+You can also install giscus in your `wwwroot` folder with npm or other Node.js package manager, and include it like above.
+
 Then add this component to your `.razor` files where you want the comments to appear like this:
 
 ```razor
@@ -70,4 +72,4 @@ You can get some sample apps from the [samples](samples) directory, in both Blaz
 ### v2.2.1
 
 - Add support for lazy-loading (see [giscus official site](https://giscus.app/)).
-- Removed support for .NET 5.0, which is now [out of support](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle).
+- Removed TFM for .NET 5.0, which is now [out of support](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle).
