@@ -10,34 +10,40 @@ To start, install it from NuGet:
 
 [![Nuget GiscusBlazor](https://img.shields.io/nuget/v/GiscusBlazor.svg)](https://www.nuget.org/packages/GiscusBlazor/)
 
-```console
+```sh
 dotnet add package GiscusBlazor
 ```
 
 Then add **either one** of the following tag to your `wwwroot/index.html` (Blazor WebAssembly) or  `Pages/_Layout.cshtml` (Blazor Server) as the last child of `<head>` element.
 
 ```html
-<!-- Use jsDelivr, recommended -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus/+esm"></script>
+<!-- Use esm.sh, using bundled module, recommended -->
+<script type="module" src="https://cdn.esm.sh/giscus?bundle"></script>
 
-<!-- or unpkg -->
-<script type="module" src="https://unpkg.com/giscus?module"></script>
+<!-- or jsDelivr -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus/+esm"></script>
 
 <!-- or Skypack -->
 <script type="module" src="https://cdn.skypack.dev/giscus"></script>
+
+<!-- or unpkg -->
+<script type="module" src="https://unpkg.com/giscus?module"></script>
 ```
 
 You might need to fix the version when publish your website. For example:
 
 ```html
-<!-- Use jsDelivr, recommended -->
+<!-- Use esm.sh, using bundled module -->
+<script type="module" src="https://cdn.esm.sh/giscus@1.0.5?bundle"></script>
+
+<!-- or jsDelivr -->
 <script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.0.5/+esm"></script>
+
+<!-- or Skypack, and get the pinned URL as in https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized -->
+<script type="module" src="https://cdn.skypack.dev/pin/giscus@v1.0.5-fJEzgjC6Tv2TgAOCxRiI/mode=imports,min/optimized/giscus.js"></script>
 
 <!-- or unpkg -->
 <script type="module" src="https://unpkg.com/giscus@1.0.5?module"></script>
-
-<!-- or Skypack, get the pinned URL as in https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized -->
-<script type="module" src="https://cdn.skypack.dev/pin/giscus@v1.0.5-fJEzgjC6Tv2TgAOCxRiI/mode=imports,min/optimized/giscus.js"></script>
 ```
 
 You can also install giscus in your `wwwroot` folder with npm or other Node.js package manager, and include it like above.
@@ -65,7 +71,7 @@ Then add this component to your `.razor` files where you want the comments to ap
 
 Or you can just add `@using GiscusBlazor` to `_Imports.razor`.
 
-Most of the parameters’ information can be found from the [giscus official site](https://giscus.app/).
+Most values of the `string` parameters can be found from the [giscus official site](https://giscus.app/).
 
 ## Samples
 
