@@ -31,13 +31,13 @@ You might need to fix the version when publish your website. For example:
 
 ```html
 <!-- Use jsDelivr, recommended -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.0.3/+esm"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.0.5/+esm"></script>
 
 <!-- or unpkg -->
-<script type="module" src="https://unpkg.com/giscus@1.0.3?module"></script>
+<script type="module" src="https://unpkg.com/giscus@1.0.5?module"></script>
 
-<!-- or Skypack -->
-<script type="module" src="https://cdn.skypack.dev/giscus@1.0.3"></script>
+<!-- or Skypack, get the pinned URL as in https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized -->
+<script type="module" src="https://cdn.skypack.dev/pin/giscus@v1.0.5-fJEzgjC6Tv2TgAOCxRiI/mode=imports,min/optimized/giscus.js"></script>
 ```
 
 You can also install giscus in your `wwwroot` folder with npm or other Node.js package manager, and include it like above.
