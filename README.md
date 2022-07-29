@@ -34,16 +34,17 @@ You might need to fix the version when publish your website. For example:
 
 ```html
 <!-- Use esm.sh, using bundled module -->
-<script type="module" src="https://cdn.esm.sh/giscus@1.0.5?bundle"></script>
+<script type="module" src="https://cdn.esm.sh/giscus@1.1.1?bundle"></script>
 
 <!-- or jsDelivr -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.0.5/+esm"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.1.1/+esm"></script>
 
 <!-- or Skypack, and get the pinned URL as in https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized -->
-<script type="module" src="https://cdn.skypack.dev/pin/giscus@v1.0.5-fJEzgjC6Tv2TgAOCxRiI/mode=imports,min/optimized/giscus.js"></script>
+<script type="module"
+        src="https://cdn.skypack.dev/pin/giscus@v1.1.1-pMHE0mo1rPPSOZMcMNip/mode=imports,min/optimized/giscus.js"></script>
 
 <!-- or unpkg -->
-<script type="module" src="https://unpkg.com/giscus@1.0.5?module"></script>
+<script type="module" src="https://unpkg.com/giscus@1.1.1?module"></script>
 ```
 
 You can also install giscus in your `wwwroot` folder with npm or other Node.js package manager, and include it like above.
@@ -66,12 +67,13 @@ Then add this component to your `.razor` files where you want the comments to ap
         InputPosition="InputPosition.Bottom"
         Theme="light"
         Lang="en"
-        LazyLoading="true" />
+        Loading="Loading.Lazy" />
 ```
 
 Or you can just add `@using GiscusBlazor` to `_Imports.razor`.
 
-Most values of the `string` parameters can be found from the [giscus official site](https://giscus.app/).
+For most of the `string`-typed parameters, you can use the values from the [giscus official site](https://giscus.app/)
+directly.
 
 ## Samples
 
@@ -79,7 +81,13 @@ You can get some sample apps from the [samples](samples) directory, in both Blaz
 
 ## Changelog
 
+### v2.3.0
+
+- Add host support.
+- Rearrange some parameters.
+
 ### v2.2.1
 
 - Add support for lazy-loading (see [giscus official site](https://giscus.app/)).
-- Removed TFM for .NET 5.0, which is now [out of support](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle).
+- Removed TFM for .NET 5.0, which is
+  now [out of support](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle).

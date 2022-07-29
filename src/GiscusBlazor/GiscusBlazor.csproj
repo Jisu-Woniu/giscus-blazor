@@ -7,7 +7,7 @@
     <RepositoryUrl>https://github.com/Jisu-Woniu/giscus-blazor</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <Version>2.2.1</Version>
+    <Version>2.3.0</Version>
     <Description>A Blazor component to embed giscus, a comments system powered by GitHub Discussions.</Description>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

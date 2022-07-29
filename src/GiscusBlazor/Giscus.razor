@@ -1,13 +1,15 @@
-﻿<giscus-widget repo="@Repo"
+﻿<giscus-widget host="@Host"
+               repo="@Repo"
                repoid="@RepoId"
                category="@Category"
                categoryid="@CategoryId"
                mapping="@Mapping.ToMappingString()"
+               strict="@(Strict ? "1" : "0")"
                term="@Term"
                reactionsenabled="@(ReactionsEnabled ? "1" : "0")"
                emitmetadata="@(EmitMetadata ? "1" : "0")"
-               inputposition="@InputPosition"
+               inputposition="@InputPosition.ToPositionString()"
                theme="@Theme"
                lang="@Lang"
-               loading="@(LazyLoading ? "lazy" : "")">
+               loading="@Loading.ToLoadingString()">
 </giscus-widget>

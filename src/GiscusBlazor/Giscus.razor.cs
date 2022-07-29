@@ -4,16 +4,16 @@ namespace GiscusBlazor
 {
     public partial class Giscus
     {
-        [Parameter]
-#if NET6_0
+#if NET6_0_OR_GREATER
         [EditorRequired]
 #endif
+        [Parameter]
         public string Repo { get; set; } = null!;
 
-        [Parameter]
-#if NET6_0
+#if NET6_0_OR_GREATER
         [EditorRequired]
 #endif
+        [Parameter]
         public string RepoId { get; set; } = null!;
 
         [Parameter]
@@ -22,14 +22,17 @@ namespace GiscusBlazor
         [Parameter]
         public string? CategoryId { get; set; }
 
-        [Parameter]
-#if NET6_0
+#if NET6_0_OR_GREATER
         [EditorRequired]
 #endif
+        [Parameter]
         public Mapping Mapping { get; set; } = Mapping.PathName;
 
         [Parameter]
         public string? Term { get; set; }
+
+        [Parameter]
+        public bool Strict { get; set; } = false;
 
         [Parameter]
         public bool ReactionsEnabled { get; set; } = true;
@@ -38,7 +41,7 @@ namespace GiscusBlazor
         public bool EmitMetadata { get; set; }
 
         [Parameter]
-        public InputPosition? InputPosition { get; set; }
+        public InputPosition InputPosition { get; set; }
 
         [Parameter]
         public string? Theme { get; set; }
@@ -47,6 +50,9 @@ namespace GiscusBlazor
         public string? Lang { get; set; }
 
         [Parameter]
-        public bool LazyLoading { get; set; }
+        public Loading Loading { get; set; } = Loading.Eager;
+
+        [Parameter]
+        public string? Host { get; set; } = "https://giscus.app";
     }
 }
