@@ -4,15 +4,11 @@ namespace GiscusBlazor
 {
     public partial class Giscus
     {
-#if NET6_0_OR_GREATER
         [EditorRequired]
-#endif
         [Parameter]
         public string Repo { get; set; } = null!;
 
-#if NET6_0_OR_GREATER
         [EditorRequired]
-#endif
         [Parameter]
         public string RepoId { get; set; } = null!;
 
@@ -22,9 +18,7 @@ namespace GiscusBlazor
         [Parameter]
         public string? CategoryId { get; set; }
 
-#if NET6_0_OR_GREATER
         [EditorRequired]
-#endif
         [Parameter]
         public Mapping Mapping { get; set; } = Mapping.PathName;
 
