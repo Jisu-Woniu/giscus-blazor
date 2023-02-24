@@ -17,7 +17,7 @@ dotnet add package GiscusBlazor
 Then add **either one** of the following tag to your `wwwroot/index.html` (Blazor WebAssembly) or  `Pages/_Layout.cshtml` (Blazor Server) as the last child of `<head>` element.
 
 ```html
-<!-- Use esm.sh, using bundled module, recommended -->
+<!-- Use esm.sh, bundled module, recommended -->
 <script type="module" src="https://cdn.esm.sh/giscus?bundle"></script>
 
 <!-- or jsDelivr -->
@@ -33,18 +33,18 @@ Then add **either one** of the following tag to your `wwwroot/index.html` (Blazo
 You might need to fix the version when publish your website. For example:
 
 ```html
-<!-- Use esm.sh, using bundled module -->
-<script type="module" src="https://cdn.esm.sh/giscus@1.1.1?bundle"></script>
+<!-- Use esm.sh, bundled module, recommended -->
+<script type="module" src="https://cdn.esm.sh/giscus@1.2.6?bundle"></script>
 
 <!-- or jsDelivr -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.1.1/+esm"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/giscus@1.2.6/+esm"></script>
 
 <!-- or Skypack, and get the pinned URL as in https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized -->
 <script type="module"
-        src="https://cdn.skypack.dev/pin/giscus@v1.1.1-pMHE0mo1rPPSOZMcMNip/mode=imports,min/optimized/giscus.js"></script>
+        src="https://cdn.skypack.dev/pin/giscus@v1.2.6-2WANIcmI2aizozaoK5tr/mode=imports,min/optimized/giscus.js"></script>
 
 <!-- or unpkg -->
-<script type="module" src="https://unpkg.com/giscus@1.1.1?module"></script>
+<script type="module" src="https://unpkg.com/giscus@1.2.6?module"></script>
 ```
 
 You can also install giscus in your `wwwroot` folder with npm or other Node.js package manager, and include it like above.
@@ -80,6 +80,10 @@ directly.
 You can get some sample apps from the [samples](samples) directory, in both Blazor WebAssembly and Blazor Server.
 
 ## Changelog
+
+### v2.3.1
+
+-  Drop .NET Core 3.1 support since it reached EOL. 
 
 ### v2.3.0
 
